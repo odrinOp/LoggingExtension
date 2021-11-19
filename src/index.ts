@@ -1,10 +1,5 @@
-import { LogColors } from './constants/LogColors';
-import { DefaultLogger } from './logger/DefaultLogger';
+import { LoggerFactory } from './factory/LoggerFactory';
+import { Logger } from './logger/Logger';
+import { LogOptionsInterface } from './constants/LogOptions';
 
-const logger = new DefaultLogger({ name: 'HelloWorld', level: 10 });
-
-logger.debug('Hello');
-logger.info('Hello');
-logger.http('Hello');
-logger.warn('Hello');
-logger.error('Hello');
+export { Logger, LoggerFactory, LogOptionsInterface };
