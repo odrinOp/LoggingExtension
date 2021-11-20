@@ -2,7 +2,9 @@ import { throws } from 'assert';
 import { DefaultLogOptionsConfiguration, LogOptionsInterface } from '../constants/LogOptions';
 import { DefaultLogger } from '../logger/DefaultLogger';
 import { Logger } from '../logger/Logger';
-
+/**
+ * @deprecated(@since v1.0.0)
+ */
 export class LoggerFactory {
 	private defaultOptions: LogOptionsInterface;
 	private static INSTANCE: LoggerFactory;
@@ -19,7 +21,6 @@ export class LoggerFactory {
 			}
 		}
 	}
-
 	public static getInstance(options?: LogOptionsInterface) {
 		if (this.INSTANCE == null) this.INSTANCE = new LoggerFactory(options);
 		return this.INSTANCE;
