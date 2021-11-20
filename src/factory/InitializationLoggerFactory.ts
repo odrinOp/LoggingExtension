@@ -1,10 +1,10 @@
-import { Logger, LogOptionsInterface } from '..';
+import { Logger, LogOptions } from '..';
 import { DefaultLogOptionsConfiguration } from '../constants/LogOptions';
 import { DefaultLogger } from '../logger/DefaultLogger';
 
 export class InititializationLoggerFactory {
-	private static CONTEXT: LogOptionsInterface = DefaultLogOptionsConfiguration;
-	public static setContext(context: LogOptionsInterface): void {
+	private static CONTEXT: LogOptions = DefaultLogOptionsConfiguration;
+	public static setContext(context: LogOptions): void {
 		if (context == null) return;
 		for (const key in context) {
 			if (key in this.CONTEXT) {
