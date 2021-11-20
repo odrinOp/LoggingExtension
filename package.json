@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "Logging extension",
 	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
 		"prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
 		"build": "tsc",
@@ -33,5 +34,7 @@
 	"dependencies": {
 		"chalk": "^4.1.2"
 	},
-	"files": ["dist/**/*"]
+	"files": [
+		"dist"
+	]
 }
