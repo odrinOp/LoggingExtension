@@ -9,7 +9,7 @@ export class InititializationLoggerFactory {
 		this.CONTEXT = mergeLogOptions(this.CONTEXT, context);
 	}
 	public static getLogger(name: string, options?: LogOptions): Logger {
-		let customContext = options == null ? this.CONTEXT : mergeLogOptions(this.CONTEXT, options);
+		const customContext = options == null ? this.CONTEXT : mergeLogOptions(this.CONTEXT, options);
 		return new DefaultLogger({ ...customContext, name: customContext.name + '-' + name });
 	}
 }

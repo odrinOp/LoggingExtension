@@ -7,9 +7,9 @@ import { LogOptions } from '..';
  * @param obj2 -> the object which we want to be merged.
  */
 export const mergeLogOptions: (obj1: LogOptions, obj2: LogOptions) => LogOptions = (obj1, obj2) => {
-	let tempObj = obj1;
-	for (let keys in obj2) {
-		tempObj[keys] = obj2[keys];
+	const tempObj = obj1;
+	for (const keys in obj2) {
+		if (keys != null) tempObj[keys] = obj2[keys];
 	}
 
 	return tempObj;
