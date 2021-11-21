@@ -63,7 +63,7 @@ export class DefaultLogger implements Logger {
 		const minute = date.getMinutes();
 		const seconds = date.getSeconds();
 
-		return `${year}${month}${day}|${hour}${minute}${seconds}`;
+		return `[${year}-${month}-${day}Z${hour}:${minute}:${seconds}]`;
 	}
 
 	info(message: any): void {
