@@ -40,12 +40,22 @@ export class DefaultLogger implements Logger {
 	private log(info: LogMessageInfo) {
 		if (info.chalk != null) {
 			this.printOnConsole(
-				`${info.chalk.inverse(info.level)}${info.chalk(`\t${info.timestamp}\t[${info.name}]:${info.message}`)}`
+				this.formatLog(
+					info.chalk.inverse(info.level),
+					info.chalk(info.timestamp),
+					info.chalk(info.name),
+					info.chalk(info.message)
+				)
 			);
 		} else {
-			this.printOnConsole(`${info.level}\t${info.timestamp}\t${info.timestamp}\t[${info.name}]:${info.message}`);
+			this.printOnConsole(this.formatLog(info.level, info.timestamp, info.name, info.message));
 		}
 	}
+
+	private formatLog(level: string, timestamp: string, name: string, message: any): string {
+		return `${level}\t[${timestamp}] - [${name}] - ${message}`;
+	}
+
 	private isLevelNotAllowed(level: string): boolean {
 		return LogLevels[level] > this.options.level;
 	}
@@ -63,7 +73,7 @@ export class DefaultLogger implements Logger {
 		const minute = date.getMinutes();
 		const seconds = date.getSeconds();
 
-		return `[${year}-${month}-${day}Z${hour}:${minute}:${seconds}]`;
+		return `${year}-${month}-${day} ${hour}:${minute}:${seconds}`;
 	}
 
 	info(message: any): void {
